@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.taj.students.Entity.Students;
@@ -21,8 +23,8 @@ public class StudentsController {
         this.service=service;
     }
 
-    // GetStudents
 
+    // GetStudents
     @GetMapping("/students")
     public List<Students> getStudents() {
         return service.getAllStudents();
@@ -30,8 +32,8 @@ public class StudentsController {
 
     // SaveStudents
     @PostMapping("/saveStudents")
-    public String saveStudents() {
-        return "SAVE STUDENTS";
+    public Students saveStudents(@RequestBody Students newStudents) {
+       return service.saveStudents(newStudents);
     }
 
     // UpdateStudents
@@ -42,7 +44,7 @@ public class StudentsController {
 
     // DeleteStudents
     @DeleteMapping("/deleteStudents")
-    public String deleteStudents() {
+    public String deleteStudents(@RequestParam("id") int id) {
         return "DELETE STUDENTS";
     }
 

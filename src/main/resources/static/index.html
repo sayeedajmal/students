@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration | Academic Portal</title>
+    <meta name="description" content="Official student registration portal for the Taj Students management system.">
+    <!-- Link to our premium styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <section class="card shadow">
+            <header>
+                <p class="subtitle">Enrollment Services</p>
+                <h1>Student Registration</h1>
+            </header>
+
+            <form id="studentRegistrationForm" novalidate>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john.doe@example.com" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Course of Interest</label>
+                    <input type="text" id="course" name="course" placeholder="Computer Science" required aria-required="true">
+                </div>
+
+                <button type="submit" id="submitBtn">Register Student</button>
+            </form>
+
+            <div id="statusMessage" class="status-message" aria-live="polite"></div>
+        </section>
+
+        <section class="students-section">
+            <div class="section-header">
+                <h2>Registered Students</h2>
+            </div>
+            <div class="table-container">
+                <table id="studentsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentsTableBody">
+                        <!-- Data will be injected here by app.js -->
+                        <tr>
+                            <td colspan="5" class="empty-state">Loading student directory...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Link to our clean logic -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -38,4 +38,9 @@ public class StudentsService {
         return studentsRepo.findAll();
     }
 
+    //Save Students
+    public Students saveStudents(Students newStudent){
+        return studentsRepo.save(newStudent);
+    }
+
 }
